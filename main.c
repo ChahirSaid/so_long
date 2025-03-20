@@ -73,18 +73,22 @@ void print_map(char *map)
 int valid_name(char *av)
 {
     int len = 0;
-    int i = 0;
+    int i;
 
+    if (!av || ft_strncmp(av, "maps/", 5) != 0)
+        return 0;
+    i = 5;
+    if(!av[i])
+        return 0;
     while (av[i])
     {
+        if (av[i] == '/')
+            return 0;
         if (av[i] == '.')
             len = i;
         i++;
     }
-    if (len < 1)
-        return 0;
-    
-    if (ft_strcmp(&av[len], ".ber") != 0)
+    if (len <= 5 || ft_strcmp(&av[len], ".ber") != 0)
         return 0;
     return 1;
 }
