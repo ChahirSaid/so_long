@@ -3,7 +3,7 @@ NAME = so_long
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = main.c
+SRC = so_long.c map_parser/load_map.c map_parser/map_check.c map_parser/path_check.c
 OBJ = $(SRC:.c=.o)
 
 LIBFT_DIR = libft
