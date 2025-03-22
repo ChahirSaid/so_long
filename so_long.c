@@ -6,7 +6,7 @@
 /*   By: schahir <schahir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 16:19:28 by schahir           #+#    #+#             */
-/*   Updated: 2025/03/21 21:40:19 by schahir          ###   ########.fr       */
+/*   Updated: 2025/03/22 00:04:22 by schahir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void print_map(t_map *map)
 {
     int i = 0;
     
-	ft_printf("Height: %d\nWidth : %d\nGrid :\n", map->height, map->width);
+	ft_printf("Height: %d\nWidth : %d\nCollectibles : %d\nExit : %d\nExit coordinates [%d:%d]\nPlayer : %d\nPlayer coordinate [%d:%d]\nGrid : \n", map->height, map->width, map->collectibles, map->exit, map->exit_x, map->exit_y, map->player, map->player_x, map->player_y);
 	while(i < map->height)
 	{
 		ft_printf("%s\n", map->grid[i]);
