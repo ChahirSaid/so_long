@@ -6,7 +6,7 @@
 /*   By: schahir <schahir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 00:57:11 by schahir           #+#    #+#             */
-/*   Updated: 2025/03/18 16:02:29 by schahir          ###   ########.fr       */
+/*   Updated: 2025/03/23 06:46:37 by schahir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	is_valid_number(char *str)
 {
 	long	value;
 	int		i;
-	
+
 	i = 0;
 	value = 0;
 	if (!str || !*str)

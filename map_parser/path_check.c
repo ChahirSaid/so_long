@@ -6,7 +6,7 @@
 /*   By: schahir <schahir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 21:24:26 by schahir           #+#    #+#             */
-/*   Updated: 2025/03/21 23:32:55 by schahir          ###   ########.fr       */
+/*   Updated: 2025/03/23 17:43:00 by schahir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static char	**create_copy(t_map *map)
 
 	copy = ft_calloc(map->height, sizeof(char *));
 	if (!copy)
-		exit_free(map, "Memory Allocation Failed");
+		exit_free(map, "Memory allocation failed");
 	i = 0;
 	while (i < map->height)
 	{
@@ -29,7 +29,7 @@ static char	**create_copy(t_map *map)
 			while (--i >= 0)
 				free(copy[i]);
 			free(copy);
-			exit_free(map, "Memory Allocation Failed");
+			exit_free(map, "Memory allocation failed");
 		}
 		i++;
 	}

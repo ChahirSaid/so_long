@@ -6,7 +6,7 @@
 /*   By: schahir <schahir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 16:19:11 by schahir           #+#    #+#             */
-/*   Updated: 2025/03/21 21:24:14 by schahir          ###   ########.fr       */
+/*   Updated: 2025/03/23 17:42:31 by schahir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	check_rectangular(t_map *map)
 	{
 		len = ft_strlen(map->grid[i]);
 		if (len != map->width)
-			exit_free(map, "Map Must Be Recatngular");
+			exit_free(map, "Map must be recatngular");
 		i++;
 	}
 }
@@ -37,13 +37,13 @@ void	check_borders(t_map *map)
 	while(j < map->width)
 	{
 		if (map->grid[0][j] != '1' || map->grid[map->height - 1][j] != '1')
-			exit_free(map, "Map Must Be Surrounded By Walls");
+			exit_free(map, "Map must be surrounded by walls");
 		j++;
 	}
 	while (i < map->height)
 	{
 		if(map->grid[i][0] != '1' || map->grid[i][map->width -1] != '1')
-			exit_free(map, "Map Must Be Surrounded By Walls");
+			exit_free(map, "Map must be surrounded by walls");
 		i++;
 	}
 }
@@ -82,7 +82,7 @@ static void	check_elements(t_map *map)
 			else if (map->grid[i][j] == 'E')
 				populate_element(map, i, j, 'E');
 			else if (map->grid[i][j] != '0' && map->grid[i][j] != '1')
-				exit_free(map, "Map Can Only Have (P) (C) (E) (0) (1)");
+				exit_free(map, "Map can only have (P) (C) (E) (0) (1)");
 			j++;
 		}
 		i++;
@@ -93,9 +93,9 @@ void	elements_count(t_map *map)
 {
 	check_elements(map);
 	if (map->player != 1)
-		exit_free(map, "Map Must Have Exactly One Player (P)");
+		exit_free(map, "Map must have exactly one Player (P)");
 	if (map->collectibles < 1)
-		exit_free(map, "Map Must Have At Least One Collectible (C)");
+		exit_free(map, "Map Mmust have at least one Collectible (C)");
 	if (map->exit != 1)
-		exit_free(map, "Map Must Have Exactly One Exit (E)");
+		exit_free(map, "Map must have exactly one Exit (E)");
 }
