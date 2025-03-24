@@ -6,7 +6,7 @@
 /*   By: schahir <schahir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 16:19:28 by schahir           #+#    #+#             */
-/*   Updated: 2025/03/23 21:35:09 by schahir          ###   ########.fr       */
+/*   Updated: 2025/03/24 03:13:43 by schahir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	valid_name(char *map_path)
 	}
 	return (1);
 }
-void	exit_success(t_map *map)
+int	exit_success(t_map *map)
 {
 	free_map(map);
 	ft_putstr_fd("Windows closed\n", 1);
@@ -50,10 +50,11 @@ static void	ft_init(t_map *map)
 	map->graphics.win = mlx_new_window(map->graphics.mlx,width,height,"So_long");
 	if(!map->graphics.win)
 		exit_free(map, "Window creation failed");
-	mlx_hook(map->graphics.win, 17, 0, exit_success, map);
-	mlx_key_hook(map->graphics.win, handle_input, map);
 	load_textures(map);
-	render_textures(map);
+	render_textures(map, 0);
+	mlx_hook(map->graphics.win, 17, 0, exit_success, map);
+	mlx_key_hook(map->graphics.win, &handle_input, map);
+	mlx_loop(map->graphics.mlx);
 }
 void print_map(t_map *map)
 {

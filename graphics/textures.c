@@ -6,7 +6,7 @@
 /*   By: schahir <schahir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 17:47:42 by schahir           #+#    #+#             */
-/*   Updated: 2025/03/23 21:50:28 by schahir          ###   ########.fr       */
+/*   Updated: 2025/03/24 03:12:49 by schahir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	load_textures(t_map *map)
 	g->img_collectible = mlx_xpm_file_to_image(g->mlx, "textures/c.xpm", &ps, &ps);
 	if (!g->img_collectible)
 		exit_free(map, "Error loading collectible");
-	g->img_exit = mlx_xpm_file_to_image(g->img_exit, "textures/e.xpm", &ps, &ps);
+	g->img_exit = mlx_xpm_file_to_image(g->mlx, "textures/e.xpm", &ps, &ps);
 	if (!g->img_exit)
 		exit_free(map, "Error loading exit");
 	g->img_on_exit = mlx_xpm_file_to_image(g->mlx, "textures/pe.xpm", &ps, &ps);
@@ -39,10 +39,11 @@ void	load_textures(t_map *map)
 		exit_free(map, "Error loading player on exit");
 }
 
-void	render_textures(t_map *map)
+void	render_textures(t_map *map, int on_exit)
 {
 	int			x;
 	int			y;
+	void		*img;
 	t_graphics *g;
 
 	g = &map->graphics;
@@ -52,20 +53,21 @@ void	render_textures(t_map *map)
 		x = 0;
 		while (x < map->width)
 		{
-			mlx_put_image_to_window(g->mlx,g->win,g->img_floor,x * PIXEL_SIZE, y * PIXEL_SIZE);
-			if (map->grid[x][y] == '1')
-				mlx_put_image_to_window(g->mlx,g->win,g->img_wall,x * PIXEL_SIZE, y * PIXEL_SIZE);
-			else if (map->grid[x][y] == 'C')
-				mlx_put_image_to_window(g->mlx, g->win, g->img_collectible, x * PIXEL_SIZE, y * PIXEL_SIZE);
-			else if (map->grid[x][y] == 'E')
-				mlx_put_image_to_window(g->mlx, g->win, g->img_exit, x * PIXEL_SIZE, y * PIXEL_SIZE);
-			else if (map->grid[x][y] == 'P')
+			img = g->img_floor;
+			if (map->grid[y][x] == '1')
+				img = g->img_wall;
+			else if (map->grid[y][x] == 'C')
+				img = g->img_collectible;
+			else if (map->grid[y][x] == 'E')
+				img = g->img_exit;
+			else if (map->grid[y][x] == 'P')
 			{
-				if (x == map->exit_x && y == map->exit_y)
-					mlx_put_image_to_window(g->mlx, g->win, g->img_on_exit, x * PIXEL_SIZE, y * PIXEL_SIZE);
+				if (on_exit)
+					img = g->img_on_exit;
 				else
-					mlx_put_image_to_window(g->mlx, g->win, g->img_player, x * PIXEL_SIZE, y * PIXEL_SIZE);
+					img = g->img_player;
 			}
+			mlx_put_image_to_window(g->mlx, g->win, img,x * PIXEL_SIZE, y * PIXEL_SIZE);
 			x++;
 		}
 		y++;

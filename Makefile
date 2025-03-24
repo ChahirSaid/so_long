@@ -1,10 +1,11 @@
 NAME		= so_long
 
 CC			= cc
-CFLAGS		= -Wall -Wextra -Werror -L/usr/lib -lmlx -lXext -lX11
+CFLAGS		= -Wall -Wextra -Werror
+MLX_FLAGS	= -L/usr/include/minilibx-linux -lmlx -lXext -lX11
 SRC			= so_long.c destroy.c \
 				map_parser/load_map.c map_parser/map_check.c map_parser/path_check.c \
-				graphics/textures.c
+				graphics/textures.c graphics/moves.c
 
 OBJ 		= $(SRC:.c=.o)
 
@@ -23,7 +24,7 @@ $(LIBFT):
 	make -C $(LIBFT_DIR)
 
 $(NAME): $(OBJ) $(LIBFT) $(HEADER)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT) $(MLX_FLAGS)
 
 %.o: %.c $(HEADER)
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@

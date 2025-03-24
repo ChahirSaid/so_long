@@ -6,7 +6,7 @@
 /*   By: schahir <schahir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 22:49:54 by schahir           #+#    #+#             */
-/*   Updated: 2025/03/23 20:58:27 by schahir          ###   ########.fr       */
+/*   Updated: 2025/03/24 03:16:27 by schahir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "../libft/includes/libft.h"
 # include "../libft/includes/get_next_line.h"
 # include "../libft/includes/ft_printf.h"
-#include "mlx.h"
+#include "/usr/include/minilibx-linux/mlx.h"
 
 #include <fcntl.h>
 
@@ -61,10 +61,9 @@ typedef struct s_map
 }   t_map;
 
 /*---------------Graphics---------------*/
-void	handle_input(t_map *map);
-void	render_textures(t_map *map);
+int     handle_input(int key, t_map *map);
+void	render_textures(t_map *map, int on_exit);
 void	load_textures(t_map *map);
-void	ft_init(t_map *map);
 
 /*--------------Map-Parsing--------------*/
 void	check_path(t_map *map);
@@ -76,7 +75,7 @@ t_map	*read_map(char *map_path);
 /*-------------Error-Handling-------------*/
 void	exit_free(t_map *map, char *message);
 void	free_map(t_map *map);
-void	exit_success(t_map *map);
+int     exit_success(t_map *map);
 void	exit_error(char *message);
 
 #endif

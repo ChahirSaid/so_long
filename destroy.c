@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_destroy.c                                      :+:      :+:    :+:   */
+/*   destroy.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: schahir <schahir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 18:05:25 by schahir           #+#    #+#             */
-/*   Updated: 2025/03/23 18:15:11 by schahir          ###   ########.fr       */
+/*   Updated: 2025/03/24 02:49:14 by schahir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,6 @@ static void	destroy_images(t_map *map)
 		mlx_destroy_image(map->graphics.mlx, map->graphics.img_on_exit);
 }
 
-static void	destroy_window(t_map *map)
-{
-	mlx_clear_window(map->graphics.mlx, map->graphics.win);
-	mlx_destroy_window(map->graphics.mlx, map->graphics.win);
-}
-
 void	free_map(t_map *map)
 {
 	int i;
@@ -69,7 +63,7 @@ void	free_map(t_map *map)
 	{
 		destroy_images(map);
 		if (map->graphics.win)
-			destroy_window(map);
+			mlx_destroy_window(map->graphics.mlx, map->graphics.win);
 		mlx_destroy_display(map->graphics.mlx);
 		free(map->graphics.mlx);
 	}
