@@ -6,7 +6,7 @@
 /*   By: schahir <schahir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 18:05:25 by schahir           #+#    #+#             */
-/*   Updated: 2025/03/24 22:44:01 by schahir          ###   ########.fr       */
+/*   Updated: 2025/03/24 23:21:48 by schahir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	exit_error(char *message)
 {
-	ft_putstr_fd("Error: ", 2);
+	ft_putstr_fd("Error\n", 2);
 	ft_putstr_fd(message, 2);
 	ft_putstr_fd("\n", 2);
 	exit (1);
@@ -40,6 +40,8 @@ static void	destroy_images(t_map *map)
 		mlx_destroy_image(map->graphics.mlx, map->graphics.img_exit);
 	if (map->graphics.img_on_exit)
 		mlx_destroy_image(map->graphics.mlx, map->graphics.img_on_exit);
+	if (map->graphics.img_enemy)
+		mlx_destroy_image(map->graphics.mlx, map->graphics.img_enemy);
 }
 
 int	exit_success(t_map *map)

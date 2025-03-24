@@ -6,7 +6,7 @@
 /*   By: schahir <schahir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 16:19:28 by schahir           #+#    #+#             */
-/*   Updated: 2025/03/24 18:34:17 by schahir          ###   ########.fr       */
+/*   Updated: 2025/03/24 23:30:12 by schahir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,18 +45,6 @@ static void	ft_init(t_map *map)
 	mlx_key_hook(map->graphics.win, &handle_input, map);
 	mlx_loop(map->graphics.mlx);
 }
-void print_map(t_map *map)
-{
-    int i = 0;
-    
-	ft_printf("Height: %d\nWidth : %d\nCollectibles : %d\nExit : %d\nExit coordinates [%d:%d]\nPlayer : %d\nPlayer coordinate [%d:%d]\nGrid : \n", map->height, map->width, map->collectibles, map->exit, map->exit_x, map->exit_y, map->player, map->player_x, map->player_y);
-	while(i < map->height)
-	{
-		ft_printf("%s\n", map->grid[i]);
-		i++;
-	}
-	ft_printf("\n%p\n%p\n%p", map->graphics.mlx, map->graphics.win, map->graphics.img_exit);
-}
 
 int main(int ac, char **av)
 {
@@ -72,6 +60,5 @@ int main(int ac, char **av)
 	elements_count(map);
 	check_path(map);
 	ft_init(map);	
-	print_map(map);
 	free_map(map);
 }
