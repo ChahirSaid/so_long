@@ -6,7 +6,7 @@
 /*   By: schahir <schahir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 16:19:11 by schahir           #+#    #+#             */
-/*   Updated: 2025/03/24 18:35:09 by schahir          ###   ########.fr       */
+/*   Updated: 2025/03/24 22:38:03 by schahir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,6 @@ static void	populate_element(t_map *map, int i, int j, char element)
 		map->exit_x = j;
 		map->exit_y = i;
 	}
-	else if (element == 'M')
-	{
-		map->enemy++;
-		map->enemy_x = j;
-		map->enemy_y = i;
-	}
 }
 
 static void	check_elements(t_map *map)
@@ -87,10 +81,10 @@ static void	check_elements(t_map *map)
 				map->collectibles++;
 			else if (map->grid[i][j] == 'E')
 				populate_element(map, i, j, 'E');
-			else if (map->grid[i][j] == 'M')
-				populate_element(map, i, j, 'M');
+			else if (map->grid[i][j] == 'B')
+				map->enemy++;
 			else if (map->grid[i][j] != '0' && map->grid[i][j] != '1')
-				exit_free(map, "Map can only have (P) (C) (E) (M) (0) (1)");
+				exit_free(map, "Map can only have (P) (C) (E) (B) (0) (1)");
 			j++;
 		}
 		i++;

@@ -6,7 +6,7 @@
 /*   By: schahir <schahir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 17:47:42 by schahir           #+#    #+#             */
-/*   Updated: 2025/03/24 18:33:53 by schahir          ###   ########.fr       */
+/*   Updated: 2025/03/24 22:50:18 by schahir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,9 @@ void	load_textures(t_map *map)
 	g->img_on_exit = mlx_xpm_file_to_image(g->mlx, "textures/pe.xpm", &ps, &ps);
 	if (!g->img_on_exit)
 		exit_free(map, "Error loading player on exit");
+	g->img_enemy = mlx_xpm_file_to_image(g->mlx, "textures/b.xpm", &ps, &ps);
+	if (!g->img_enemy)
+		exit_free(map, "Error loading enemy");
 }
 
 void	render_textures(t_map *map, int on_exit)
@@ -60,6 +63,8 @@ void	render_textures(t_map *map, int on_exit)
 				img = g->img_collectible;
 			else if (map->grid[y][x] == 'E')
 				img = g->img_exit;
+			else if (map->grid[y][x] == 'B')
+				img = g->img_enemy;
 			else if (map->grid[y][x] == 'P')
 			{
 				if (on_exit)

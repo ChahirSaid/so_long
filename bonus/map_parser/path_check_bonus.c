@@ -6,7 +6,7 @@
 /*   By: schahir <schahir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 21:24:26 by schahir           #+#    #+#             */
-/*   Updated: 2025/03/24 18:37:58 by schahir          ###   ########.fr       */
+/*   Updated: 2025/03/24 22:37:53 by schahir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static char	**create_copy(t_map *map)
 
 static void flood_fill(char **copy, int x, int y, int *c, int *e)
 {
-	if(copy[y][x] == '1' || copy[y][x] == 'M')
+	if(copy[y][x] == '1' || copy[y][x] == 'B')
 		return ;
 	if(copy[y][x] == 'C')
 		(*c)--;
