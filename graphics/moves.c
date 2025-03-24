@@ -6,7 +6,7 @@
 /*   By: schahir <schahir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 20:52:47 by schahir           #+#    #+#             */
-/*   Updated: 2025/03/24 03:13:21 by schahir          ###   ########.fr       */
+/*   Updated: 2025/03/24 15:58:46 by schahir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	move_player(t_map *map, int x, int y)
 	{
 		if(map->collectibles == 0)
 		{
-			ft_putstr_fd("YOU WIN\n", 1);
+			ft_putstr_fd("Game over\n", 1);
 			free_map(map);
 			exit (0);
 		}
