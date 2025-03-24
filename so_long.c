@@ -6,7 +6,7 @@
 /*   By: schahir <schahir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 16:19:28 by schahir           #+#    #+#             */
-/*   Updated: 2025/03/24 03:13:43 by schahir          ###   ########.fr       */
+/*   Updated: 2025/03/24 16:17:47 by schahir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,7 @@ static int	valid_name(char *map_path)
 	}
 	return (1);
 }
-int	exit_success(t_map *map)
-{
-	free_map(map);
-	ft_putstr_fd("Windows closed\n", 1);
-	exit (0);
-}
+
 static void	ft_init(t_map *map)
 {
 	int	height;

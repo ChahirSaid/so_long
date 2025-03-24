@@ -6,7 +6,7 @@
 /*   By: schahir <schahir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 18:05:25 by schahir           #+#    #+#             */
-/*   Updated: 2025/03/24 02:49:14 by schahir          ###   ########.fr       */
+/*   Updated: 2025/03/24 16:17:59 by schahir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,13 @@ static void	destroy_images(t_map *map)
 		mlx_destroy_image(map->graphics.mlx, map->graphics.img_exit);
 	if (map->graphics.img_on_exit)
 		mlx_destroy_image(map->graphics.mlx, map->graphics.img_on_exit);
+}
+
+int	exit_success(t_map *map)
+{
+	free_map(map);
+	ft_putstr_fd("Windows closed\n", 1);
+	exit (0);
 }
 
 void	free_map(t_map *map)
