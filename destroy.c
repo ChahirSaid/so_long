@@ -6,7 +6,7 @@
 /*   By: schahir <schahir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 18:05:25 by schahir           #+#    #+#             */
-/*   Updated: 2025/03/24 16:17:59 by schahir          ###   ########.fr       */
+/*   Updated: 2025/03/24 16:22:41 by schahir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static void	destroy_images(t_map *map)
 int	exit_success(t_map *map)
 {
 	free_map(map);
-	ft_putstr_fd("Windows closed\n", 1);
+	ft_putstr_fd("Window closed\n", 1);
 	exit (0);
 }
 
