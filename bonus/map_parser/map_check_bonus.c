@@ -6,11 +6,11 @@
 /*   By: schahir <schahir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 16:19:11 by schahir           #+#    #+#             */
-/*   Updated: 2025/03/24 17:56:25 by schahir          ###   ########.fr       */
+/*   Updated: 2025/03/24 18:35:09 by schahir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/so_long.h"
+#include "../../includes/so_long_bonus.h"
 
 void	check_rectangular(t_map *map)
 {
@@ -61,6 +61,12 @@ static void	populate_element(t_map *map, int i, int j, char element)
 		map->exit++;
 		map->exit_x = j;
 		map->exit_y = i;
+	}
+	else if (element == 'M')
+	{
+		map->enemy++;
+		map->enemy_x = j;
+		map->enemy_y = i;
 	}
 }
 

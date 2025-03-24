@@ -6,7 +6,7 @@
 /*   By: schahir <schahir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 17:09:02 by schahir           #+#    #+#             */
-/*   Updated: 2025/03/24 17:09:36 by schahir          ###   ########.fr       */
+/*   Updated: 2025/03/24 18:33:37 by schahir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,9 @@ typedef struct s_map
     int     player;
     int     player_x;
     int     player_y;
+    int     enemy;
+    int     enemy_x;
+    int     enemy_y;
     
     t_graphics graphics;
 }   t_map;

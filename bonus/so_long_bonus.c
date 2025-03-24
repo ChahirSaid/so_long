@@ -6,11 +6,11 @@
 /*   By: schahir <schahir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 16:19:28 by schahir           #+#    #+#             */
-/*   Updated: 2025/03/24 18:27:43 by schahir          ###   ########.fr       */
+/*   Updated: 2025/03/24 18:34:17 by schahir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../includes/so_long_bonus.h"
 
 static int valid_name(char *map_path)
 {
