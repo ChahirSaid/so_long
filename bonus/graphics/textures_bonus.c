@@ -6,11 +6,11 @@
 /*   By: schahir <schahir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 17:47:42 by schahir           #+#    #+#             */
-/*   Updated: 2025/03/24 03:12:49 by schahir          ###   ########.fr       */
+/*   Updated: 2025/03/24 16:36:52 by schahir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../../includes/so_long.h"
 
 void	load_textures(t_map *map)
 {

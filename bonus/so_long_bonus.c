@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   so_long_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: schahir <schahir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 16:19:28 by schahir           #+#    #+#             */
-/*   Updated: 2025/03/24 16:17:47 by schahir          ###   ########.fr       */
+/*   Updated: 2025/03/24 18:27:43 by schahir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/so_long.h"
+#include "../includes/so_long.h"
 
-static int	valid_name(char *map_path)
+static int valid_name(char *map_path)
 {
-	int i;
-	int len;
-	
-	if(!map_path)
-	return (0);
-	len = ft_strlen(map_path);
-	if (len <= 4 || ft_strcmp(&map_path[len - 4], ".ber") != 0)
+    int len;
+    
+    if (!map_path)
+        return (0);
+    len = ft_strlen(map_path);
+    if (len <= 4 || ft_strcmp(&map_path[len - 4], ".ber") != 0)
 		return (0);
-	i = 0;
-	while (map_path[i])
-	{
-		if(map_path[i] == '/' && map_path[i + 1] == '.')
-			return (0);
-		i++;
-	}
-	return (1);
+	if (ft_strcmp(&map_path[len - 5], "/.ber") == 0)
+		return (0);
+    return (1);
 }
 
 static void	ft_init(t_map *map)

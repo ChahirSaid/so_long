@@ -6,11 +6,11 @@
 /*   By: schahir <schahir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 18:05:25 by schahir           #+#    #+#             */
-/*   Updated: 2025/03/24 16:22:41 by schahir          ###   ########.fr       */
+/*   Updated: 2025/03/24 16:37:06 by schahir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/so_long.h"
+#include "../includes/so_long.h"
 
 void	exit_error(char *message)
 {

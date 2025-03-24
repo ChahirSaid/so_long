@@ -6,11 +6,11 @@
 /*   By: schahir <schahir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 16:19:11 by schahir           #+#    #+#             */
-/*   Updated: 2025/03/23 17:41:05 by schahir          ###   ########.fr       */
+/*   Updated: 2025/03/24 16:36:55 by schahir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../../includes/so_long.h"
 
 static t_map	*check_map(char *map_path)
 {

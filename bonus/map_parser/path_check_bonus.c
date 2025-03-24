@@ -6,11 +6,11 @@
 /*   By: schahir <schahir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 21:24:26 by schahir           #+#    #+#             */
-/*   Updated: 2025/03/23 17:43:00 by schahir          ###   ########.fr       */
+/*   Updated: 2025/03/24 16:37:00 by schahir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../../includes/so_long.h"
 
 static char	**create_copy(t_map *map)
 {

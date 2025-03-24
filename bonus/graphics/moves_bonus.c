@@ -6,11 +6,11 @@
 /*   By: schahir <schahir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 20:52:47 by schahir           #+#    #+#             */
-/*   Updated: 2025/03/24 15:58:46 by schahir          ###   ########.fr       */
+/*   Updated: 2025/03/24 16:36:44 by schahir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../../includes/so_long.h"
 
 static void	move_player(t_map *map, int x, int y)
 {
