@@ -6,23 +6,18 @@
 /*   By: schahir <schahir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 20:52:47 by schahir           #+#    #+#             */
-/*   Updated: 2025/03/24 23:08:36 by schahir          ###   ########.fr       */
+/*   Updated: 2025/03/25 01:07:40 by schahir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-static void print_moves(t_map *map, char c)
+static void print_moves(void)
 {
 	static int count;
-	if (c == 'W' && map->grid[map->player_y - 1][map->player_x] != '1')
-		ft_printf("moves: %d\n", ++count);
-	if (c == 'A' && map->grid[map->player_y][map->player_x - 1] != '1')
-		ft_printf("moves: %d\n", ++count);
-	if (c == 'S' && map->grid[map->player_y + 1][map->player_x] != '1')
-		ft_printf("moves: %d\n", ++count);
-	if (c == 'D' && map->grid[map->player_y][map->player_x + 1] != '1')
-		ft_printf("moves: %d\n", ++count);
+
+	ft_printf("moves: %d\n",count);
+	count++;
 }
 
 static void	move_player(t_map *map, int x, int y)
@@ -59,32 +54,21 @@ static void	move_player(t_map *map, int x, int y)
 	map->player_x = new_x;
 	map->player_y = new_y;
 	render_textures(map, on_exit);
+	print_moves();
 }
 
 int	handle_input(int key, t_map *map)
 {
 	if (key == ESC)
 		exit_success(map);
-	if (key == W || key == UP)
-	{
-		print_moves(map, 'W');
+	if (key == W || key == UP) 
 		move_player(map, 0, -1);
-	}
 	if (key == A || key == LEFT)
-	{
-		print_moves(map, 'A');
 		move_player(map, -1, 0);
-	}
 	if (key == S || key == DOWN)
-	{
-		print_moves(map, 'S');
 		move_player(map, 0, 1);
-	}
 	if (key == D || key == RIGHT)
-	{
-		print_moves(map, 'D');
 		move_player(map, 1, 0);
-	}
 	return (0);
 }
 
