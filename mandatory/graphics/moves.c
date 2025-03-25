@@ -6,7 +6,7 @@
 /*   By: schahir <schahir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 20:52:47 by schahir           #+#    #+#             */
-/*   Updated: 2025/03/25 01:07:40 by schahir          ###   ########.fr       */
+/*   Updated: 2025/03/25 04:02:26 by schahir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,19 @@ static void	print_moves(void)
 
 	ft_printf("moves: %d\n", count);
 	count++;
+}
+
+static int	handle_exit(t_map *map, int new_x, int new_y)
+{
+	if (map->collectibles == 0)
+	{
+		ft_putstr_fd("STAGE CLEARED\n", 1);
+		free_map(map);
+		exit (0);
+	}
+	map->exit_x = new_x;
+	map->exit_y = new_y;
+	return (1);
 }
 
 static void	move_player(t_map *map, int x, int y)
@@ -34,17 +47,7 @@ static void	move_player(t_map *map, int x, int y)
 	if (map->grid[new_y][new_x] == 'C')
 		map->collectibles--;
 	if (map->grid[new_y][new_x] == 'E')
-	{
-		if (map->collectibles == 0)
-		{
-			ft_putstr_fd("STAGE CLEARED\n", 1);
-			free_map(map);
-			exit(0);
-		}
-		on_exit = 1;
-		map->exit_x = new_x;
-		map->exit_y = new_y;
-	}
+		on_exit = handle_exit(map, new_x, new_y);
 	if (map->player_y == map->exit_y && map->player_x == map->exit_x)
 		map->grid[map->player_y][map->player_x] = 'E';
 	else

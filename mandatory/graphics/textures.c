@@ -6,7 +6,7 @@
 /*   By: schahir <schahir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 17:47:42 by schahir           #+#    #+#             */
-/*   Updated: 2025/03/25 03:09:45 by schahir          ###   ########.fr       */
+/*   Updated: 2025/03/25 03:56:49 by schahir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,13 @@ void	load_textures(t_map *map)
 		exit_free(map, "Error loading player on exit");
 }
 
+static void	*render_helper(t_map *map, int on_exit)
+{
+	if (on_exit)
+		return (map->graphics.img_on_exit);
+	return (map->graphics.img_player);
+}
+
 void	render_textures(t_map *map, int on_exit)
 {
 	int		x;
@@ -60,12 +67,7 @@ void	render_textures(t_map *map, int on_exit)
 			else if (map->grid[y][x] == 'E')
 				img = map->graphics.img_exit;
 			else if (map->grid[y][x] == 'P')
-			{
-				if (on_exit)
-					img = map->graphics.img_on_exit;
-				else
-					img = map->graphics.img_player;
-			}
+				img = render_helper(map, on_exit);
 			mlx_put_image_to_window(map->graphics.mlx, map->graphics.win, img, x
 				* PIXEL_SIZE, y * PIXEL_SIZE);
 			x++;
