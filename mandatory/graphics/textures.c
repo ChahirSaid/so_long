@@ -6,7 +6,7 @@
 /*   By: schahir <schahir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 17:47:42 by schahir           #+#    #+#             */
-/*   Updated: 2025/03/24 16:36:52 by schahir          ###   ########.fr       */
+/*   Updated: 2025/03/25 03:09:45 by schahir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,30 +45,28 @@ void	render_textures(t_map *map, int on_exit)
 	int			x;
 	int			y;
 	void		*img;
-	t_graphics	*g;
 
-	g = &map->graphics;
 	y = 0;
 	while (y < map->height)
 	{
 		x = 0;
 		while (x < map->width)
 		{
-			img = g->img_floor;
+			img = map->graphics.img_floor;
 			if (map->grid[y][x] == '1')
-				img = g->img_wall;
+				img = map->graphics.img_wall;
 			else if (map->grid[y][x] == 'C')
-				img = g->img_collectible;
+				img = map->graphics.img_collectible;
 			else if (map->grid[y][x] == 'E')
-				img = g->img_exit;
+				img = map->graphics.img_exit;
 			else if (map->grid[y][x] == 'P')
 			{
 				if (on_exit)
-					img = g->img_on_exit;
+					img = map->graphics.img_on_exit;
 				else
-					img = g->img_player;
+					img = map->graphics.img_player;
 			}
-			mlx_put_image_to_window(g->mlx, g->win, img, x * PIXEL_SIZE, y
+			mlx_put_image_to_window(map->graphics.mlx, map->graphics.win, img, x * PIXEL_SIZE, y
 				* PIXEL_SIZE);
 			x++;
 		}
