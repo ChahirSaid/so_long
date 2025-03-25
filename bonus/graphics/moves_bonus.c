@@ -6,7 +6,7 @@
 /*   By: schahir <schahir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 20:52:47 by schahir           #+#    #+#             */
-/*   Updated: 2025/03/25 01:02:49 by schahir          ###   ########.fr       */
+/*   Updated: 2025/03/25 02:53:10 by schahir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,14 @@
 static void	print_moves(t_map *map)
 {
 	static int	count;
+	char		*str;
 
+	str = ft_itoa(count);
 	mlx_string_put(map->graphics.mlx, map->graphics.win, 24, 24, 0xffffffff,
 		"moves:");
 	mlx_string_put(map->graphics.mlx, map->graphics.win, 24, 44, 0xffffffff,
-		ft_itoa(count));
+		str);
+	free(str);
 	count++;
 }
 

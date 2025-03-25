@@ -6,7 +6,7 @@
 /*   By: schahir <schahir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 21:24:26 by schahir           #+#    #+#             */
-/*   Updated: 2025/03/25 02:06:25 by schahir          ###   ########.fr       */
+/*   Updated: 2025/03/25 02:44:15 by schahir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,8 @@ static int	has_element(char **copy, t_map *map)
 {
 	int	i;
 	int	j;
-	int	j;
 
 	i = 0;
-	j = 0;
 	while (i < map->height)
 	{
 		j = 0;
