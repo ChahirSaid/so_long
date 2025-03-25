@@ -17,13 +17,13 @@ void	exit_error(char *message)
 	ft_putstr_fd("Error\n", 2);
 	ft_putstr_fd(message, 2);
 	ft_putstr_fd("\n", 2);
-	exit (1);
+	exit(1);
 }
 
 void	exit_free(t_map *map, char *message)
 {
 	free_map(map);
-    exit_error(message);
+	exit_error(message);
 }
 
 static void	destroy_images(t_map *map)
@@ -46,21 +46,21 @@ int	exit_success(t_map *map)
 {
 	free_map(map);
 	ft_putstr_fd("Window closed\n", 1);
-	exit (0);
+	exit(0);
 }
 
 void	free_map(t_map *map)
 {
-	int i;
+	int	i;
 
-	if(!map)
+	if (!map)
 		return ;
 	if (map->grid)
 	{
 		i = 0;
-		while(i < map->height)
+		while (i < map->height)
 		{
-			if(map->grid[i])
+			if (map->grid[i])
 				free(map->grid[i]);
 			i++;
 		}

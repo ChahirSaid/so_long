@@ -46,7 +46,7 @@ t_map	*read_map(char *map_path)
 	int		fd;
 	int		i;
 	char	*line;
-	
+
 	map = check_map(map_path);
 	fd = open(map_path, O_RDONLY);
 	if (fd == -1)
@@ -56,7 +56,7 @@ t_map	*read_map(char *map_path)
 	while (line)
 	{
 		if (line[ft_strlen(line) - 1] == '\n')
-		line[ft_strlen(line) - 1] = '\0';
+			line[ft_strlen(line) - 1] = '\0';
 		map->grid[i] = line;
 		if (i == 0)
 			map->width = ft_strlen(line);

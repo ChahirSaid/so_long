@@ -12,11 +12,11 @@
 
 #include "../../includes/so_long.h"
 
-static void print_moves(void)
+static void	print_moves(void)
 {
-	static int count;
+	static int	count;
 
-	ft_printf("moves: %d\n",count);
+	ft_printf("moves: %d\n", count);
 	count++;
 }
 
@@ -24,27 +24,26 @@ static void	move_player(t_map *map, int x, int y)
 {
 	int	new_x;
 	int	new_y;
-	int on_exit;
+	int	on_exit;
 
 	new_x = map->player_x + x;
 	new_y = map->player_y + y;
-	
 	on_exit = 0;
 	if (map->grid[new_y][new_x] == '1')
 		return ;
 	if (map->grid[new_y][new_x] == 'C')
 		map->collectibles--;
-	if(map->grid[new_y][new_x] == 'E')
+	if (map->grid[new_y][new_x] == 'E')
 	{
-		if(map->collectibles == 0)
+		if (map->collectibles == 0)
 		{
 			ft_putstr_fd("STAGE CLEARED\n", 1);
 			free_map(map);
-			exit (0);
+			exit(0);
 		}
 		on_exit = 1;
 		map->exit_x = new_x;
-		map->exit_y = new_y;	
+		map->exit_y = new_y;
 	}
 	if (map->player_y == map->exit_y && map->player_x == map->exit_x)
 		map->grid[map->player_y][map->player_x] = 'E';
@@ -61,7 +60,7 @@ int	handle_input(int key, t_map *map)
 {
 	if (key == ESC)
 		exit_success(map);
-	if (key == W || key == UP) 
+	if (key == W || key == UP)
 		move_player(map, 0, -1);
 	if (key == A || key == LEFT)
 		move_player(map, -1, 0);
@@ -71,4 +70,3 @@ int	handle_input(int key, t_map *map)
 		move_player(map, 1, 0);
 	return (0);
 }
-

@@ -14,8 +14,8 @@
 
 void	load_textures(t_map *map)
 {
-	int	ps;
-	t_graphics *g;
+	int			ps;
+	t_graphics	*g;
 
 	g = &map->graphics;
 	ps = PIXEL_SIZE;
@@ -28,7 +28,8 @@ void	load_textures(t_map *map)
 	g->img_player = mlx_xpm_file_to_image(g->mlx, "textures/p.xpm", &ps, &ps);
 	if (!g->img_player)
 		exit_free(map, "Error loading player");
-	g->img_collectible = mlx_xpm_file_to_image(g->mlx, "textures/c.xpm", &ps, &ps);
+	g->img_collectible = mlx_xpm_file_to_image(g->mlx, "textures/c.xpm", &ps,
+			&ps);
 	if (!g->img_collectible)
 		exit_free(map, "Error loading collectible");
 	g->img_exit = mlx_xpm_file_to_image(g->mlx, "textures/e.xpm", &ps, &ps);
@@ -47,7 +48,7 @@ void	render_textures(t_map *map, int on_exit)
 	int			x;
 	int			y;
 	void		*img;
-	t_graphics *g;
+	t_graphics	*g;
 
 	g = &map->graphics;
 	y = 0;
@@ -72,7 +73,8 @@ void	render_textures(t_map *map, int on_exit)
 				else
 					img = g->img_player;
 			}
-			mlx_put_image_to_window(g->mlx, g->win, img,x * PIXEL_SIZE, y * PIXEL_SIZE);
+			mlx_put_image_to_window(g->mlx, g->win, img, x * PIXEL_SIZE, y
+				* PIXEL_SIZE);
 			x++;
 		}
 		y++;

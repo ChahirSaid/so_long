@@ -13,12 +13,11 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../libft/includes/libft.h"
-# include "../libft/includes/get_next_line.h"
 # include "../libft/includes/ft_printf.h"
-#include "/usr/include/minilibx-linux/mlx.h"
-
-#include <fcntl.h>
+# include "../libft/includes/get_next_line.h"
+# include "../libft/includes/libft.h"
+# include "/usr/include/minilibx-linux/mlx.h"
+# include <fcntl.h>
 
 # define PIXEL_SIZE 48
 
@@ -29,52 +28,52 @@
 # define D 100
 # define UP 65362
 # define LEFT 65361
-# define DOWN 65364 
+# define DOWN 65364
 # define RIGHT 65363
 
 typedef struct s_graphics
 {
-    void    *mlx;
-    void    *win;
-    void    *img_wall;
-    void    *img_floor;
-    void    *img_collectible;
-    void    *img_player;
-    void    *img_exit;
-    void    *img_on_exit;
-}   t_graphics;
+	void		*mlx;
+	void		*win;
+	void		*img_wall;
+	void		*img_floor;
+	void		*img_collectible;
+	void		*img_player;
+	void		*img_exit;
+	void		*img_on_exit;
+}				t_graphics;
 
 typedef struct s_map
 {
-    char    **grid;
-    int     width;
-    int     height;
-    int     collectibles;
-    int     exit;
-    int     exit_x;
-    int     exit_y;
-    int     player;
-    int     player_x;
-    int     player_y;
-    t_graphics graphics;
-}   t_map;
+	char		**grid;
+	int			width;
+	int			height;
+	int			collectibles;
+	int			exit;
+	int			exit_x;
+	int			exit_y;
+	int			player;
+	int			player_x;
+	int			player_y;
+	t_graphics	graphics;
+}				t_map;
 
 /*---------------Graphics---------------*/
-int     handle_input(int key, t_map *map);
-void	render_textures(t_map *map, int on_exit);
-void	load_textures(t_map *map);
+int				handle_input(int key, t_map *map);
+void			render_textures(t_map *map, int on_exit);
+void			load_textures(t_map *map);
 
 /*--------------Map-Parsing--------------*/
-void	check_path(t_map *map);
-void	elements_count(t_map *map);
-void	check_borders(t_map *map);
-void	check_rectangular(t_map *map);
-t_map	*read_map(char *map_path);
+void			check_path(t_map *map);
+void			elements_count(t_map *map);
+void			check_borders(t_map *map);
+void			check_rectangular(t_map *map);
+t_map			*read_map(char *map_path);
 
 /*-------------Error-Handling-------------*/
-void	exit_free(t_map *map, char *message);
-void	free_map(t_map *map);
-int     exit_success(t_map *map);
-void	exit_error(char *message);
+void			exit_free(t_map *map, char *message);
+void			free_map(t_map *map);
+int				exit_success(t_map *map);
+void			exit_error(char *message);
 
 #endif

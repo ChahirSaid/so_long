@@ -41,11 +41,11 @@ $(BONUS_NAME): $(BONUS_OBJ) $(LIBFT) $(BONUS_HEADER)
 
 clean:
 	$(RM) $(OBJ) $(BONUS_OBJ)
-	make -C $(LIBFT_DIR) clean
+	@make -C $(LIBFT_DIR) clean
 
 fclean: clean
 	$(RM) $(NAME) $(BONUS_NAME)
-	make -C $(LIBFT_DIR) fclean
+	@make -C $(LIBFT_DIR) fclean
 
 re: fclean all
 

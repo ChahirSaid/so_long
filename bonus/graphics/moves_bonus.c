@@ -12,27 +12,28 @@
 
 #include "../../includes/so_long_bonus.h"
 
-static void print_moves(t_map *map)
+static void	print_moves(t_map *map)
 {
-	static int count;
+	static int	count;
 
-	mlx_string_put(map->graphics.mlx, map->graphics.win, 24, 24, 0xffffffff, "moves:");
-	mlx_string_put(map->graphics.mlx, map->graphics.win, 24, 44, 0xffffffff, ft_itoa(count));
+	mlx_string_put(map->graphics.mlx, map->graphics.win, 24, 24, 0xffffffff,
+		"moves:");
+	mlx_string_put(map->graphics.mlx, map->graphics.win, 24, 44, 0xffffffff,
+		ft_itoa(count));
 	count++;
 }
 
-static void move_player(t_map *map, int x, int y)
+static void	move_player(t_map *map, int x, int y)
 {
-	int new_x;
-	int new_y;
-	int on_exit;
+	int	new_x;
+	int	new_y;
+	int	on_exit;
 
 	new_x = map->player_x + x;
 	new_y = map->player_y + y;
-
 	on_exit = 0;
 	if (map->grid[new_y][new_x] == '1')
-		return;
+		return ;
 	if (map->grid[new_y][new_x] == 'B')
 	{
 		ft_putstr_fd("YOU DIED\n", 1);
@@ -64,7 +65,7 @@ static void move_player(t_map *map, int x, int y)
 	print_moves(map);
 }
 
-int handle_input(int key, t_map *map)
+int	handle_input(int key, t_map *map)
 {
 	if (key == ESC)
 		exit_success(map);

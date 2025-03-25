@@ -31,10 +31,10 @@ void	check_borders(t_map *map)
 {
 	int	i;
 	int	j;
-	
+
 	i = 0;
 	j = 0;
-	while(j < map->width)
+	while (j < map->width)
 	{
 		if (map->grid[0][j] != '1' || map->grid[map->height - 1][j] != '1')
 			exit_free(map, "Map must be surrounded by walls");
@@ -42,7 +42,7 @@ void	check_borders(t_map *map)
 	}
 	while (i < map->height)
 	{
-		if(map->grid[i][0] != '1' || map->grid[i][map->width -1] != '1')
+		if (map->grid[i][0] != '1' || map->grid[i][map->width - 1] != '1')
 			exit_free(map, "Map must be surrounded by walls");
 		i++;
 	}
@@ -68,9 +68,9 @@ static void	check_elements(t_map *map)
 {
 	int	i;
 	int	j;
-	
+
 	i = 0;
-	while(i < map->height)
+	while (i < map->height)
 	{
 		j = 0;
 		while (j < map->width)

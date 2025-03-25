@@ -12,18 +12,18 @@
 
 #include "../includes/so_long.h"
 
-static int valid_name(char *map_path)
+static int	valid_name(char *map_path)
 {
-    int len;
-    
-    if (!map_path)
-        return (0);
-    len = ft_strlen(map_path);
-    if (len <= 4 || ft_strcmp(&map_path[len - 4], ".ber") != 0)
+	int	len;
+
+	if (!map_path)
+		return (0);
+	len = ft_strlen(map_path);
+	if (len <= 4 || ft_strcmp(&map_path[len - 4], ".ber") != 0)
 		return (0);
 	if (ft_strcmp(&map_path[len - 5], "/.ber") == 0)
 		return (0);
-    return (1);
+	return (1);
 }
 
 static void	ft_init(t_map *map)
@@ -36,8 +36,9 @@ static void	ft_init(t_map *map)
 	map->graphics.mlx = mlx_init();
 	if (!map->graphics.mlx)
 		exit_free(map, "Minilibx initialization failed");
-	map->graphics.win = mlx_new_window(map->graphics.mlx,width,height,"So_long");
-	if(!map->graphics.win)
+	map->graphics.win = mlx_new_window(map->graphics.mlx, width, height,
+			"So_long");
+	if (!map->graphics.win)
 		exit_free(map, "Window creation failed");
 	load_textures(map);
 	render_textures(map, 0);
@@ -46,19 +47,19 @@ static void	ft_init(t_map *map)
 	mlx_loop(map->graphics.mlx);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	t_map *map;
+	t_map	*map;
 
 	if (ac != 2)
 		exit_error("Invalid arguments [./so_long maps/filename.ber]");
-	if(!valid_name(av[1]))
+	if (!valid_name(av[1]))
 		exit_error("Invalid map name or path");
 	map = read_map(av[1]);
 	check_rectangular(map);
 	check_borders(map);
 	elements_count(map);
 	check_path(map);
-	ft_init(map);	
+	ft_init(map);
 	free_map(map);
 }
