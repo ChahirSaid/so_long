@@ -42,9 +42,9 @@ void	load_textures(t_map *map)
 
 void	render_textures(t_map *map, int on_exit)
 {
-	int			x;
-	int			y;
-	void		*img;
+	int		x;
+	int		y;
+	void	*img;
 
 	y = 0;
 	while (y < map->height)
@@ -66,8 +66,8 @@ void	render_textures(t_map *map, int on_exit)
 				else
 					img = map->graphics.img_player;
 			}
-			mlx_put_image_to_window(map->graphics.mlx, map->graphics.win, img, x * PIXEL_SIZE, y
-				* PIXEL_SIZE);
+			mlx_put_image_to_window(map->graphics.mlx, map->graphics.win, img, x
+				* PIXEL_SIZE, y * PIXEL_SIZE);
 			x++;
 		}
 		y++;
