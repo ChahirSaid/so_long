@@ -83,6 +83,6 @@ void	check_path(t_map *map)
 		i++;
 	}
 	free(copy);
-	if (valid)
+	if (!valid)
 		exit_free(map, "Invalid Path");
 }
