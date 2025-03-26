@@ -58,7 +58,7 @@ static int	has_element(char **copy, t_map *map)
 		j = 0;
 		while (j < map->width)
 		{
-			if (copy[i][j] != '0' || copy[i][j] != '1')
+			if (copy[i][j] == 'E' || copy[i][j] == 'C')
 				return (0);
 			j++;
 		}
@@ -83,6 +83,6 @@ void	check_path(t_map *map)
 		i++;
 	}
 	free(copy);
-	if (valid)
+	if (!valid)
 		exit_free(map, "Invalid Path");
 }
