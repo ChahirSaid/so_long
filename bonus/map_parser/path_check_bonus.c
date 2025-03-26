@@ -6,7 +6,7 @@
 /*   By: schahir <schahir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 21:24:26 by schahir           #+#    #+#             */
-/*   Updated: 2025/03/25 02:44:15 by schahir          ###   ########.fr       */
+/*   Updated: 2025/03/25 21:25:19 by schahir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static int	has_element(char **copy, t_map *map)
 		j = 0;
 		while (j < map->width)
 		{
-			if (copy[i][j] != '0' || copy[i][j] != '1' || copy[i][j] != 'B')
+			if (copy[i][j] == 'E' || copy[i][j] == 'C')
 				return (0);
 			j++;
 		}
