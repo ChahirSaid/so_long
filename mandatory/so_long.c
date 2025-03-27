@@ -6,7 +6,7 @@
 /*   By: schahir <schahir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 16:19:28 by schahir           #+#    #+#             */
-/*   Updated: 2025/03/24 23:30:37 by schahir          ###   ########.fr       */
+/*   Updated: 2025/03/27 23:29:47 by schahir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void	ft_init(t_map *map)
 	load_textures(map);
 	render_textures(map, 0);
 	mlx_hook(map->graphics.win, 17, 0, exit_success, map);
-	mlx_key_hook(map->graphics.win, &handle_input, map);
+	mlx_hook(map->graphics.win, 2, 1, &handle_input, map);
 	mlx_loop(map->graphics.mlx);
 }
 
